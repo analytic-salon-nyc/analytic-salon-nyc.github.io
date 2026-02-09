@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Analytic Salon</title>
+  <meta name="description" content="A free, evening drop-in salon for people who like sharp questions and clear answers." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="wrap">
+    <aside class="sidebar">
+      <div class="site-title">The Analytic Salon</div>
+      <div class="tagline">Clear Thinking, Better Arguments</div>
+
+      <nav class="nav">
+        <a href="#about">about</a>
+        <a href="#format">format</a>
+        <a href="#upcoming">upcoming</a>
+        <a href="#topics">topics</a>
+        <a href="#get-involved">get involved</a>
+        <a href="#contact">contact</a>
+      </nav>
+
+      <div class="small">
+        Hosted by the Saul Kripke Center<br/>
+        at the CUNY Graduate Center
+      </div>
+
+      <div class="cta">
+        <!-- Replace the # with your RSVP/Eventbrite/Luma link -->
+        <a class="button" href="#" rel="noopener">RSVP</a>
+        <a class="button ghost" href="mailto:your-email@example.com">Join mailing list</a>
+      </div>
+    </aside>
+
+    <main id="main" class="content">
+      <section id="about">
+        <h2>about</h2>
+        <p>
+          A free, evening drop-in salon for people who like sharp questions and clear answers.
+          Each session is a guided, welcoming discussion designed by philosophers:
+          no jargon, no prior philosophy background, and no homework required.
+        </p>
+        <p>
+          This isn’t an unstructured meetup, but it also isn’t a lecture.
+          It’s friendly rigor: you’ll meet philosophers and advanced researchers
+          who will help you sharpen an argument, clarify a concept, draw a subtle distinction,
+          and think more precisely—without the academic vibe.
+        </p>
+        <p class="motto">No jargon. Real arguments. Clarity over vibes.</p>
+        <p class="note">Seats are limited. RSVP required. Free.</p>
+      </section>
+
+      <section id="format">
+        <h2>format</h2>
+        <p>Each meeting is 90 minutes and self-contained.</p>
+        <ul>
+          <li><span class="time">0–10</span> arrivals + a light opening prompt</li>
+          <li><span class="time">10–20</span> the puzzle, presented crisply (no theory yet)</li>
+          <li><span class="time">20–65</span> structured small-group conversation (guided prompts)</li>
+          <li><span class="time">65–85</span> full-room shareback + best arguments</li>
+          <li><span class="time">85–90</span> one explicit takeaway move + teaser for next time</li>
+        </ul>
+        <p class="note">
+          Optional: a nearby post-salon hang for anyone who wants to keep talking.
+          Optional: a short reading/video sent after RSVP (only if you want).
+        </p>
+      </section>
+
+      <section id="upcoming">
+        <h2>upcoming</h2>
+        <p class="note">
+          Replace the placeholders below with dates + venue details once scheduled.
+        </p>
+
+        <div class="event">
+          <div class="event-meta">TBD • CUNY Graduate Center • 90 minutes</div>
+          <div class="event-title">Gödel in One Evening: What Incompleteness Does (and Doesn’t) Mean</div>
+          <div class="event-desc">A widely misunderstood but intrinsically compelling result—minus the hype.</div>
+        </div>
+
+        <div class="event">
+          <div class="event-meta">TBD • CUNY Graduate Center • 90 minutes</div>
+          <div class="event-title">AI & the Mind: The Chinese Room Meets Modern LLMs</div>
+          <div class="event-desc">Does a system “understand” if it produces perfect outputs?</div>
+        </div>
+      </section>
+
+      <section id="topics">
+        <h2>topics</h2>
+        <p class="note">A sample menu of stand-alone evenings (each built around a crisp puzzle):</p>
+        <ul class="columns">
+          <li>Frege’s Puzzle + “The King of France”</li>
+          <li>Rule-following and the “quus” problem</li>
+          <li>Newcomb’s paradox</li>
+          <li>Goodman’s “grue” and induction</li>
+          <li>Trolley problems (with a twist)</li>
+          <li>Gettier cases</li>
+        </ul>
+      </section>
+
+      <section id="get-involved">
+        <h2>get involved</h2>
+        <p>
+          Interested in facilitating? Most facilitators are graduate students or postdocs.
+          Preparation is lightweight: a one-page protocol and a short orientation.
+        </p>
+        <p class="note">
+          Email us if you’d like to help host, facilitate, or spread the word.
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2>contact</h2>
+        <p>
+          Email: <a href="mailto:your-email@example.com">your-email@example.com</a><br/>
+          RSVP: <a href="#">(add your RSVP link)</a>
+        </p>
+      </section>
+
+      <footer class="footer">
+        <span>© <span id="year"></span> The Analytic Salon</span>
+        <span class="sep">·</span>
+        <a href="#about">back to top</a>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Tiny convenience: keep the footer year current.
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

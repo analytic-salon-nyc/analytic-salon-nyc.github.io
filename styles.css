@@ -1,0 +1,188 @@
+/* Minimal, academic, high-contrast aesthetic (in the spirit of simple faculty sites). */
+
+:root{
+  --text: #111;
+  --muted: #555;
+  --rule: #e5e5e5;
+  --bg: #fff;
+  --link: #111;
+  --max: 980px;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.55 ui-serif, Georgia, "Times New Roman", Times, serif;
+}
+
+a{ color: var(--link); text-decoration: none; border-bottom: 1px solid currentColor; }
+a:hover{ border-bottom-color: transparent; }
+
+.skip{
+  position: absolute;
+  left: -999px;
+  top: 12px;
+  padding: 8px 10px;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+}
+.skip:focus{ left: 12px; z-index: 10; }
+
+.wrap{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 40px 22px 64px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 48px;
+}
+
+.sidebar{
+  position: sticky;
+  top: 28px;
+  align-self: start;
+  border-right: 1px solid var(--rule);
+  padding-right: 18px;
+}
+
+.site-title{
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 0 0 6px;
+}
+
+.tagline{
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+.nav{
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 18px;
+}
+.nav a{
+  width: fit-content;
+}
+
+.small{
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 18px;
+}
+
+.cta{
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.button{
+  display: inline-block;
+  padding: 10px 12px;
+  border: 1px solid var(--text);
+  border-radius: 6px;
+  text-decoration: none;
+  width: fit-content;
+}
+.button:hover{ background: #f7f7f7; }
+.button.ghost{
+  border-color: var(--rule);
+  color: var(--text);
+}
+.button.ghost:hover{ background: #fafafa; }
+
+.content section{
+  padding: 0 0 22px;
+  border-bottom: 1px solid var(--rule);
+  margin: 0 0 22px;
+}
+
+h2{
+  font-size: 14px;
+  letter-spacing: .06em;
+  text-transform: lowercase;
+  margin: 0 0 10px;
+}
+
+p{ margin: 0 0 12px; }
+
+.motto{
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.note{
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.time{
+  display: inline-block;
+  min-width: 56px;
+  color: var(--muted);
+}
+
+.event{
+  padding: 12px 0;
+}
+.event + .event{
+  border-top: 1px solid var(--rule);
+}
+.event-meta{
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.event-title{
+  font-size: 17px;
+  margin-bottom: 2px;
+}
+.event-desc{
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.columns{
+  columns: 2;
+  column-gap: 28px;
+  padding-left: 18px;
+}
+.columns li{
+  break-inside: avoid;
+  margin: 0 0 8px;
+}
+
+.footer{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  border: none;
+  margin-top: 26px;
+  padding-top: 0;
+}
+.footer a{ color: var(--muted); border-bottom-color: transparent; }
+.footer a:hover{ border-bottom-color: var(--muted); }
+.sep{ opacity: .6; }
+
+@media (max-width: 860px){
+  .wrap{ grid-template-columns: 1fr; gap: 22px; }
+  .sidebar{
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+    padding-right: 0;
+    padding-bottom: 18px;
+  }
+  .columns{ columns: 1; }
+}
+
+/* If a visitor prefers reduced motion, disable smooth scrolling. */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+}
