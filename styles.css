@@ -186,3 +186,27 @@ p{ margin: 0 0 12px; }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
 }
+
+
+/* Sequential reveal on scroll (only when JS is enabled) */
+.js main.page section {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 900ms ease, transform 900ms ease;
+  will-change: opacity, transform;
+}
+
+.js main.page section.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Accessibility: no motion if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .js main.page section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
