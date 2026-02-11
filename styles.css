@@ -1,163 +1,216 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Analytic Salon</title>
-  <meta name="description" content="A free, evening drop-in salon for people who like sharp questions and clear answers." />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
+/* Minimal, academic, crisp + airy aesthetic */
 
-  <div class="wrap">
-    <aside class="sidebar">
-      <div class="site-title">The Analytic Salon</div>
-      <div class="tagline">Clear Thinking, Better Arguments</div>
+:root{
+  --text: #111;
+  --muted: #555;
+  --rule: #e3e3e3;
+  --bg: #f6f6f6;      /* light gray background */
+  --link: #111;
+  --max: 980px;
+}
 
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#format">Format</a>
-        <a href="#upcoming">Upcoming</a>
-        <a href="#topics">Topics</a>
-        <a href="#get-involved">Get involved</a>
-        <a href="#contact">Contact</a>
-      </nav>
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
 
-      <div class="small">
-        Hosted by the Saul Kripke Center<br/>
-        at the CUNY Graduate Center
-      </div>
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 ui-serif, Georgia, "Times New Roman", Times, serif; /* keep existing font style */
+  letter-spacing: 0.005em; /* tighter tracking overall */
+}
 
-      <div class="cta">
-        <a class="button" href="#" rel="noopener">RSVP</a>
-        <a class="button ghost" href="mailto:your-email@example.com">Join mailing list</a>
-      </div>
-    </aside>
+a{
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+a:hover{ border-bottom-color: transparent; }
 
-    <main id="main" class="content">
-      <section id="about">
-        <h2>About</h2>
-        <p>
-          A free, evening drop-in salon for people who like sharp questions and clear answers.
-          Each session is a guided, welcoming discussion with philosophers:
-          no jargon, no prior philosophy background, and no homework required.
-        </p>
-        <p>
-          This isn’t an unstructured meetup, but it also isn’t a lecture.
-          You’ll meet philosophers and advanced researchers
-          who will help you explore the often elusive world of analytic philosophy. Along the way, you may inadvertently sharpen an argument, clarify a concept, draw a subtle distinction,
-          and think like a philosopher.
-        </p>
-        <p class="motto">No jargon. Real arguments. Clarity over vibes.</p>
-        <p class="note">Seats are limited. RSVP required. 100% Free.</p>
-      </section>
+.skip{
+  position: absolute;
+  left: -999px;
+  top: 12px;
+  padding: 8px 10px;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+}
+.skip:focus{ left: 12px; z-index: 10; }
 
-      <section id="format">
-        <h2>Format</h2>
-        <p>Each meeting is 90 minutes and self-contained.</p>
-        <ul>
-          <li><span class="time">0–10</span> arrivals + a light opening prompt</li>
-          <li><span class="time">10–20</span> the puzzle, presented crisply (no theory yet)</li>
-          <li><span class="time">20–65</span> structured small-group conversation (guided prompts)</li>
-          <li><span class="time">65–85</span> full-room shareback + best arguments</li>
-          <li><span class="time">85–90</span> one explicit takeaway move + teaser for next time</li>
-        </ul>
-        <p class="note">
-          Optional: a nearby post-salon hang for anyone who wants to keep talking.
-          Optional: a short reading/video sent after RSVP (only if you want).
-        </p>
-      </section>
+.wrap{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 44px 22px 84px;  /* a bit airier */
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 56px;                /* more space between sidebar and content */
+}
 
-      <section id="upcoming">
-        <h2>Upcoming</h2>
+.sidebar{
+  position: sticky;
+  top: 28px;
+  align-self: start;
+  border-right: 1px solid var(--rule);
+  padding-right: 18px;
+}
 
-        <div class="event">
-          <div class="event-meta">March 31, 2026 • CUNY Graduate Center • 90 minutes</div>
-          <div class="event-title">AI & the Mind: The Chinese Room Meets Modern LLMs</div>
-          <div class="event-desc">Does a system “understand” if it produces perfect outputs?</div>
-        </div>
+.site-title{
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 0 0 6px;
+}
 
-        <div class="event">
-          <div class="event-meta">April 14, 2026 • CUNY Graduate Center • 90 minutes</div>
-          <div class="event-title">Gödel in One Evening: What Incompleteness Does (and Doesn’t) Mean</div>
-          <div class="event-desc">A widely misunderstood but intrinsically compelling result—minus the hype.</div>
-        </div>
-      </section>
+.tagline{
+  color: var(--muted);
+  margin: 0 0 18px;
+}
 
-      <section id="topics">
-        <h2>Topics</h2>
-        <p class="note">A sample menu of stand-alone evenings (each built around a crisp puzzle):</p>
-        <ul class="columns">
-          <li>Frege’s Puzzle + “The King of France”</li>
-          <li>Rule-following and the “quus” problem</li>
-          <li>Newcomb’s paradox</li>
-          <li>Goodman’s “grue” and induction</li>
-          <li>Trolley problems (with a twist)</li>
-          <li>Gettier cases</li>
-        </ul>
-      </section>
+.nav{
+  display: grid;
+  gap: 10px;         /* a hair more space between links */
+  margin: 16px 0 20px;
+}
 
-      <section id="get-involved">
-        <h2>Get involved</h2>
-        <p>
-          Interested in facilitating? Most facilitators are advanced PhD students, postdocs, or professors.
-          Preparation is lightweight: a one-page protocol and a short orientation.
-        </p>
-        <p class="note">
-          Email us if you’d like to help host, facilitate, or spread the word.
-        </p>
-      </section>
+.nav a{
+  width: fit-content;
+  letter-spacing: 0.002em; /* very tight */
+  text-transform: none;    /* use the capitalization in the HTML */
+}
 
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>
-          Email: <a href="mailto:your-email@example.com">your-email@example.com</a><br/>
-          RSVP: <a href="#">(add your RSVP link)</a>
-        </p>
-      </section>
+.small{
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 18px;
+}
 
-      <footer class="footer">
-        <span>© <span id="year"></span> The Analytic Salon</span>
-        <span class="sep">·</span>
-        <a href="#about">Back to top</a>
-      </footer>
-    </main>
-  </div>
+.cta{
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+.button{
+  display: inline-block;
+  padding: 10px 12px;
+  border: 1px solid var(--text);
+  border-radius: 6px;
+  width: fit-content;
+  background: transparent;
+}
+.button:hover{ background: #ededed; }
+.button.ghost{
+  border-color: var(--rule);
+  color: var(--text);
+}
+.button.ghost:hover{ background: #efefef; }
 
-  <script>
-    // Sequential reveal: only the first section shows on load, then reveal one-by-one on scroll.
-    document.documentElement.classList.add('js');
+/* Sections: MUCH more vertical spacing, no divider lines */
+.content section{
+  padding: 0;
+  border-bottom: none;
+  margin: 0 0 78px; /* lots more space between sections */
+}
 
-    const sections = Array.from(document.querySelectorAll('main.content section'));
+h2{
+  font-size: 14px;
+  letter-spacing: 0.015em; /* tighter than before (was .06em) */
+  text-transform: none;
+  margin: 0 0 12px;
+}
 
-    sections.forEach((s, i) => {
-      if (i === 0) s.classList.add('reveal');
-      else s.classList.remove('reveal');
-    });
+p{ margin: 0 0 14px; }
 
-    const MIN_SCROLL_PX = 60;
-    const REVEAL_AT = 0.22; // lower = later; higher = sooner
+.motto{
+  font-style: italic;
+  margin-top: 6px;
+}
 
-    function revealNextIfReady() {
-      if (window.scrollY < MIN_SCROLL_PX) return;
+.note{
+  color: var(--muted);
+  font-size: 15px;
+}
 
-      const triggerLine = window.innerHeight * REVEAL_AT;
+.time{
+  display: inline-block;
+  min-width: 56px;
+  color: var(--muted);
+}
 
-      const next = sections.find((s, i) => i > 0 && !s.classList.contains('reveal'));
-      if (!next) return;
+.event{ padding: 12px 0; }
+.event + .event{ border-top: 1px solid var(--rule); }
 
-      const top = next.getBoundingClientRect().top;
+.event-meta{
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.event-title{
+  font-size: 17px;
+  margin-bottom: 2px;
+}
+.event-desc{
+  color: var(--muted);
+  font-size: 15px;
+}
 
-      if (top <= triggerLine) next.classList.add('reveal');
-    }
+.columns{
+  columns: 2;
+  column-gap: 28px;
+  padding-left: 18px;
+}
+.columns li{
+  break-inside: avoid;
+  margin: 0 0 8px;
+}
 
-    window.addEventListener('scroll', revealNextIfReady, { passive: true });
-    window.addEventListener('resize', revealNextIfReady);
-  </script>
-</body>
-</html>
+.footer{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  border: none;
+  margin-top: 26px;
+  padding-top: 0;
+}
+.footer a{ color: var(--muted); border-bottom-color: transparent; }
+.footer a:hover{ border-bottom-color: var(--muted); }
+.sep{ opacity: .6; }
+
+@media (max-width: 860px){
+  .wrap{ grid-template-columns: 1fr; gap: 22px; }
+  .sidebar{
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+    padding-right: 0;
+    padding-bottom: 18px;
+  }
+  .columns{ columns: 1; }
+}
+
+/* If a visitor prefers reduced motion, disable smooth scrolling + fades. */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+}
+
+/* Sequential reveal on scroll (only when JS is enabled) */
+.js main.content section{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 1200ms ease, transform 1200ms ease; /* slower + more gradual */
+  will-change: opacity, transform;
+}
+
+.js main.content section.reveal{
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .js main.content section{
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
