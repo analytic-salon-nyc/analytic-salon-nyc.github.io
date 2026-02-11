@@ -16,12 +16,12 @@
       <div class="tagline">Clear Thinking, Better Arguments</div>
 
       <nav class="nav">
-        <a href="#about">about</a>
-        <a href="#format">format</a>
-        <a href="#upcoming">upcoming</a>
-        <a href="#topics">topics</a>
-        <a href="#get-involved">get involved</a>
-        <a href="#contact">contact</a>
+        <a href="#about">About</a>
+        <a href="#format">Format</a>
+        <a href="#upcoming">Upcoming</a>
+        <a href="#topics">Topics</a>
+        <a href="#get-involved">Get involved</a>
+        <a href="#contact">Contact</a>
       </nav>
 
       <div class="small">
@@ -30,14 +30,13 @@
       </div>
 
       <div class="cta">
-        <!-- Replace the # with your RSVP/Eventbrite/Luma link -->
         <a class="button" href="#" rel="noopener">RSVP</a>
         <a class="button ghost" href="mailto:your-email@example.com">Join mailing list</a>
       </div>
     </aside>
 
     <main id="main" class="content">
-      <section id="About">
+      <section id="about">
         <h2>About</h2>
         <p>
           A free, evening drop-in salon for people who like sharp questions and clear answers.
@@ -54,7 +53,7 @@
         <p class="note">Seats are limited. RSVP required. 100% Free.</p>
       </section>
 
-      <section id="Format">
+      <section id="format">
         <h2>Format</h2>
         <p>Each meeting is 90 minutes and self-contained.</p>
         <ul>
@@ -70,24 +69,23 @@
         </p>
       </section>
 
-      <section id="Upcoming">
+      <section id="upcoming">
         <h2>Upcoming</h2>
 
-         <div class="event">
+        <div class="event">
           <div class="event-meta">March 31, 2026 • CUNY Graduate Center • 90 minutes</div>
           <div class="event-title">AI & the Mind: The Chinese Room Meets Modern LLMs</div>
           <div class="event-desc">Does a system “understand” if it produces perfect outputs?</div>
         </div>
-        
+
         <div class="event">
-          <div class="event-meta"> April 14, 2026 • CUNY Graduate Center • 90 minutes</div>
+          <div class="event-meta">April 14, 2026 • CUNY Graduate Center • 90 minutes</div>
           <div class="event-title">Gödel in One Evening: What Incompleteness Does (and Doesn’t) Mean</div>
           <div class="event-desc">A widely misunderstood but intrinsically compelling result—minus the hype.</div>
         </div>
-        
       </section>
 
-      <section id="Topics">
+      <section id="topics">
         <h2>Topics</h2>
         <p class="note">A sample menu of stand-alone evenings (each built around a crisp puzzle):</p>
         <ul class="columns">
@@ -100,7 +98,7 @@
         </ul>
       </section>
 
-      <section id="Get-involved">
+      <section id="get-involved">
         <h2>Get involved</h2>
         <p>
           Interested in facilitating? Most facilitators are advanced PhD students, postdocs, or professors.
@@ -111,8 +109,8 @@
         </p>
       </section>
 
-      <section id="Contact">
-        <h2>contact</h2>
+      <section id="contact">
+        <h2>Contact</h2>
         <p>
           Email: <a href="mailto:your-email@example.com">your-email@example.com</a><br/>
           RSVP: <a href="#">(add your RSVP link)</a>
@@ -122,50 +120,44 @@
       <footer class="footer">
         <span>© <span id="year"></span> The Analytic Salon</span>
         <span class="sep">·</span>
-        <a href="#about">back to top</a>
+        <a href="#about">Back to top</a>
       </footer>
     </main>
   </div>
 
   <script>
-    // Tiny convenience: keep the footer year current.
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
   <script>
-  // Turn on the CSS mode that hides sections by default
-  document.documentElement.classList.add('js');
+    // Sequential reveal: only the first section shows on load, then reveal one-by-one on scroll.
+    document.documentElement.classList.add('js');
 
-  const sections = Array.from(document.querySelectorAll('main.page section'));
+    const sections = Array.from(document.querySelectorAll('main.content section'));
 
-  // Reveal ONLY the first section on load.
-  sections.forEach((s, i) => {
-    if (i === 0) s.classList.add('reveal');
-    else s.classList.remove('reveal');
-  });
+    sections.forEach((s, i) => {
+      if (i === 0) s.classList.add('reveal');
+      else s.classList.remove('reveal');
+    });
 
-  const MIN_SCROLL_PX = 60;           // must scroll at least this much before anything reveals
-  const REVEAL_AT = 0.20;             // reveal when next section reaches 30% from top (0.20 later, 0.50 sooner)
+    const MIN_SCROLL_PX = 60;
+    const REVEAL_AT = 0.22; // lower = later; higher = sooner
 
-  function revealNextIfReady() {
-    if (window.scrollY < MIN_SCROLL_PX) return;
+    function revealNextIfReady() {
+      if (window.scrollY < MIN_SCROLL_PX) return;
 
-    const triggerLine = window.innerHeight * REVEAL_AT;
+      const triggerLine = window.innerHeight * REVEAL_AT;
 
-    // Find the first unrevealed section AFTER the first
-    const next = sections.find((s, i) => i > 0 && !s.classList.contains('reveal'));
-    if (!next) return;
+      const next = sections.find((s, i) => i > 0 && !s.classList.contains('reveal'));
+      if (!next) return;
 
-    const top = next.getBoundingClientRect().top;
+      const top = next.getBoundingClientRect().top;
 
-    // Reveal only when its top reaches the trigger line
-    if (top <= triggerLine) {
-      next.classList.add('reveal');
+      if (top <= triggerLine) next.classList.add('reveal');
     }
-  }
 
-  window.addEventListener('scroll', revealNextIfReady, { passive: true });
-  window.addEventListener('resize', revealNextIfReady);
-</script>
+    window.addEventListener('scroll', revealNextIfReady, { passive: true });
+    window.addEventListener('resize', revealNextIfReady);
+  </script>
 </body>
 </html>
