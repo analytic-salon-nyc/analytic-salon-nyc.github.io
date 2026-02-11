@@ -111,6 +111,12 @@ a:hover{ border-bottom-color: transparent; }
   margin: 0 0 78px; /* lots more space between sections */
 }
 
+/* Extra breathing room so the last sections can scroll up enough to trigger reveal */
+.content{
+  padding-bottom: 45vh;  /* try 35–60vh */
+}
+
+
 h2{
   font-size: 14px;
   letter-spacing: 0.015em; /* tighter than before (was .06em) */
