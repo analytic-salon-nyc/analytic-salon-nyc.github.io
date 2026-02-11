@@ -131,5 +131,41 @@
     // Tiny convenience: keep the footer year current.
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
+  <script>
+  // Turn on the CSS mode that hides sections by default
+  document.documentElement.classList.add('js');
+
+  const sections = Array.from(document.querySelectorAll('main.page section'));
+
+  // Reveal ONLY the first section on load.
+  sections.forEach((s, i) => {
+    if (i === 0) s.classList.add('reveal');
+    else s.classList.remove('reveal');
+  });
+
+  const MIN_SCROLL_PX = 60;           // must scroll at least this much before anything reveals
+  const REVEAL_AT = 0.20;             // reveal when next section reaches 30% from top (0.20 later, 0.50 sooner)
+
+  function revealNextIfReady() {
+    if (window.scrollY < MIN_SCROLL_PX) return;
+
+    const triggerLine = window.innerHeight * REVEAL_AT;
+
+    // Find the first unrevealed section AFTER the first
+    const next = sections.find((s, i) => i > 0 && !s.classList.contains('reveal'));
+    if (!next) return;
+
+    const top = next.getBoundingClientRect().top;
+
+    // Reveal only when its top reaches the trigger line
+    if (top <= triggerLine) {
+      next.classList.add('reveal');
+    }
+  }
+
+  window.addEventListener('scroll', revealNextIfReady, { passive: true });
+  window.addEventListener('resize', revealNextIfReady);
+</script>
 </body>
 </html>
