@@ -113,7 +113,7 @@ a:hover{ border-bottom-color: transparent; }
 
 /* Extra breathing room so the last sections can scroll up enough to trigger reveal */
 .content{
-  padding-bottom: 45vh;  /* try 35–60vh */
+  padding-bottom: 70vh;  /* try 35–60vh */
 }
 
 
