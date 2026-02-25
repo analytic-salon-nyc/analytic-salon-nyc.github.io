@@ -158,34 +158,51 @@ No jargon. No background needed. No homework. Just mind-bending questions, bette
   </script>
 
   <script>
-    // Sequential reveal: only the first section shows on load, then reveal one-by-one on scroll.
-    document.documentElement.classList.add('js');
+  // Sequential reveal: only the first section shows on load, then reveal one-by-one on scroll.
+  document.documentElement.classList.add('js');
 
-    const sections = Array.from(document.querySelectorAll('main.content section'));
+  const sections = Array.from(document.querySelectorAll('main.content section'));
 
-    sections.forEach((s, i) => {
-      if (i === 0) s.classList.add('reveal');
-      else s.classList.remove('reveal');
-    });
+  sections.forEach((s, i) => {
+    if (i === 0) s.classList.add('reveal');
+    else s.classList.remove('reveal');
+  });
 
-    const MIN_SCROLL_PX = 60;
-    const REVEAL_AT = 0.22; // lower = later; higher = sooner
+  const MIN_SCROLL_PX = 60;
+  const REVEAL_AT = 0.22; // lower = later; higher = sooner
 
-    function revealNextIfReady() {
-      if (window.scrollY < MIN_SCROLL_PX) return;
+  function atBottom() {
+    return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+  }
 
-      const triggerLine = window.innerHeight * REVEAL_AT;
+  function revealNextIfReady() {
+    if (window.scrollY < MIN_SCROLL_PX) return;
 
-      const next = sections.find((s, i) => i > 0 && !s.classList.contains('reveal'));
-      if (!next) return;
+    const triggerLine = window.innerHeight * REVEAL_AT;
 
+    // Reveal as many sections as have passed the trigger line (helps if you scroll quickly)
+    let next = sections.find((s, i) => i > 0 && !s.classList.contains('reveal'));
+    while (next) {
       const top = next.getBoundingClientRect().top;
-
-      if (top <= triggerLine) next.classList.add('reveal');
+      if (top <= triggerLine) {
+        next.classList.add('reveal');
+        next = sections.find((s, i) => i > 0 && !s.classList.contains('reveal'));
+      } else {
+        break;
+      }
     }
 
-    window.addEventListener('scroll', revealNextIfReady, { passive: true });
-    window.addEventListener('resize', revealNextIfReady);
-  </script>
+    // If we're basically at the bottom, reveal everything remaining
+    if (atBottom()) {
+      sections.forEach((s, i) => { if (i > 0) s.classList.add('reveal'); });
+    }
+  }
+
+  window.addEventListener('scroll', revealNextIfReady, { passive: true });
+  window.addEventListener('resize', revealNextIfReady);
+
+  // Run once after load (helps on refresh / different viewport sizes)
+  revealNextIfReady();
+</script>
 </body>
 </html>
