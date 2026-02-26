@@ -240,8 +240,10 @@ body::before{
   z-index: -1;
 }
 
-/* Optional: keep text crisp over the image */
 .wrap{
-  background: rgba(246, 246, 246, 0.78);  /* increase to 0.92 if needed */
-  border-radius: 12px;                   /* delete if you want sharp corners */
+  background: transparent;
+  border-radius: 0;
+}
+.sidebar, .content{
+  background: transparent;
 }
