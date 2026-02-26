@@ -10,16 +10,21 @@
 }
 
 *{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; }
+html{
+  scroll-behavior: smooth;
+  background: var(--bg); /* move the light gray here */
+}
 
 body{
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font: 16px/1.6 ui-serif, Georgia, "Times New Roman", Times, serif; /* keep existing font style */
-  letter-spacing: 0.005em; /* tighter tracking overall */
-}
+  background: transparent;  /* IMPORTANT: let the image show through */
+  position: relative;       /* needed for stacking */
+  z-index: 0;               /* IMPORTANT: creates a stacking context */
 
+  color: var(--text);
+  font: 16px/1.6 ui-serif, Georgia, "Times New Roman", Times, serif;
+  letter-spacing: 0.005em;
+}
 
 a{
   color: var(--link);
@@ -222,16 +227,14 @@ p{ margin: 0 0 14px; }
   }
 }
 
-body{
-  position: relative; /* lets the ::before layer sit behind everything cleanly */
-}
+
 
 body::before{
   content: "";
   position: fixed;
   inset: 0;
   background: url("assets/hero.jpg") center / cover no-repeat;
-  opacity: 0.12;                 /* try 0.08–0.16 */
+  opacity: 0.12;
   filter: grayscale(100%) contrast(1.05);
   pointer-events: none;
   z-index: -1;
@@ -239,6 +242,6 @@ body::before{
 
 /* Optional: keep text crisp over the image */
 .wrap{
-  background: rgba(246, 246, 246, 0.88);  /* increase to 0.92 if needed */
+  background: rgba(246, 246, 246, 0.78);  /* increase to 0.92 if needed */
   border-radius: 12px;                   /* delete if you want sharp corners */
 }
