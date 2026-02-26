@@ -20,28 +20,15 @@ body{
   letter-spacing: 0.005em; /* tighter tracking overall */
 }
 /* Images: keep minimal + monochrome */
-.hero{ margin: 0 0 14px; }
+.hero{
+  margin: 10px 0 18px;
+}
 .hero img{
   width: 100%;
   display: block;
   border-radius: 10px;
   filter: grayscale(100%);
-  opacity: 0.94;
-}
-.caption{
-  margin-top: 6px;
-  font-size: 13px;
-  color: var(--muted);
-}
-
-.brand{
-  width: 100%;
-  max-width: 220px;
-  display: block;
-  margin: 14px 0 10px;
-  border-radius: 10px;
-  filter: grayscale(100%);
-  opacity: 0.94;
+  opacity: 0.95;
 }
 
 a{
