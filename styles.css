@@ -19,17 +19,7 @@ body{
   font: 16px/1.6 ui-serif, Georgia, "Times New Roman", Times, serif; /* keep existing font style */
   letter-spacing: 0.005em; /* tighter tracking overall */
 }
-/* Images: keep minimal + monochrome */
-.hero{
-  margin: 10px 0 18px;
-}
-.hero img{
-  width: 100%;
-  display: block;
-  border-radius: 10px;
-  filter: grayscale(100%);
-  opacity: 0.95;
-}
+
 
 a{
   color: var(--link);
@@ -230,4 +220,25 @@ p{ margin: 0 0 14px; }
     transform: none;
     transition: none;
   }
+}
+
+body{
+  position: relative; /* lets the ::before layer sit behind everything cleanly */
+}
+
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("assets/hero.jpg") center / cover no-repeat;
+  opacity: 0.12;                 /* try 0.08–0.16 */
+  filter: grayscale(100%) contrast(1.05);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Optional: keep text crisp over the image */
+.wrap{
+  background: rgba(246, 246, 246, 0.88);  /* increase to 0.92 if needed */
+  border-radius: 12px;                   /* delete if you want sharp corners */
 }
