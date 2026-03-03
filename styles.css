@@ -89,6 +89,17 @@ a:hover{ border-bottom-color: transparent; }
   margin-top: 18px;
 }
 
+.support{
+  margin-top: 10px;
+  font-size: 13px;
+}
+.support a{
+  border-bottom-color: transparent;
+}
+.support a:hover{
+  border-bottom-color: currentColor;
+}
+
 .cta{
   display: grid;
   gap: 10px;
